@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import * as Sentry from '@sentry/nextjs';
-import { defaultAxios } from './api/config';
+import { defaultAxios } from '../api/config';
 import { checkAxiosError } from '../utils/exceptions/checkAxiosError';
 
 export default function Page() {
