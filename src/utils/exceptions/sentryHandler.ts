@@ -1,12 +1,13 @@
-import * as Sentry from '@sentry/nextjs';
-import { ApiError } from './apiError';
-import { dateToLocalDateString } from '../dateToLocaleDateString';
+import * as Sentry from "@sentry/nextjs";
+
+import { dateToLocalDateString } from "../dateToLocaleDateString";
+import { ApiError } from "./apiError";
 
 const api = (error: ApiError) => {
   Sentry.withScope((scope) => {
-    scope.setLevel('fatal');
+    scope.setLevel("fatal");
 
-    Sentry.setContext('🔥 API Request Detail 🔥', {
+    Sentry.setContext("🔥 API Request Detail 🔥", {
       name: error.name,
       statusCode: error.statusCode,
       responseData: error.responseData,
@@ -23,9 +24,9 @@ const global = (error: Error) => {
   const time = new Date();
 
   Sentry.withScope((scope) => {
-    scope.setLevel('info');
+    scope.setLevel("info");
 
-    Sentry.setContext('🔥 Global Error Detail 🔥', {
+    Sentry.setContext("🔥 Global Error Detail 🔥", {
       ...error,
       time: dateToLocalDateString(time),
     });

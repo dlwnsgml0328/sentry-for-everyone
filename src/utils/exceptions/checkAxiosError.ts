@@ -1,6 +1,7 @@
-import axios from 'axios';
-import { ApiError } from './apiError';
-import { sentryHandler } from './sentryHandler';
+import axios from "axios";
+
+import { ApiError } from "./apiError";
+import { sentryHandler } from "./sentryHandler";
 
 export const checkAxiosError = (e: unknown) => {
   if (axios.isAxiosError(e)) {
